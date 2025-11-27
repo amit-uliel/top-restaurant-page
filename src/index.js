@@ -1,10 +1,12 @@
 import { initHome } from './homeCreation';
 import { initMenu } from './menuCreation';
+import { initAbout } from './aboutCreation';
 
 initHome();
 
 setupTab("home", initHome);
 setupTab("menu", initMenu);
+setupTab("about", initAbout);
 
 function setupTab(buttonId, initFunction) {
     const button = document.getElementById(buttonId);

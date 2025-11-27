@@ -1,3 +1,5 @@
+import { createDiv, createH2, createH3, createH4, createP } from "./domHelpers";
+
 const menu = [
     {
         title: "Appetizers",
@@ -83,11 +85,13 @@ export function initMenu() {
     // create div and append
     const content = document.querySelector('#content');
 
+    content.appendChild(createH2('Our Menu'));
+
     // add menu ui
     for (let i = 0; i < menu.length; i++) {
         const foodCategory = createDiv();
 
-        const categoryTitle = createH2(menu[i].title);
+        const categoryTitle = createH3(menu[i].title);
 
         foodCategory.appendChild(categoryTitle);
 
@@ -96,7 +100,7 @@ export function initMenu() {
             const { foodName, description } = dishes[j];
             const food = createDiv();
             
-            food.appendChild(createH3(foodName));
+            food.appendChild(createH4(foodName));
             description && food.appendChild(createP(description));
 
             foodCategory.appendChild(food);
@@ -104,26 +108,4 @@ export function initMenu() {
 
         content.appendChild(foodCategory);
     }
-}
-
-function createDiv() {
-    return document.createElement('div');
-}
-
-function createH2(text) {
-    const h2 = document.createElement('h2');
-    h2.textContent = text;
-    return h2;
-}
-
-function createH3(text) {
-    const h3 = document.createElement('h3');
-    h3.textContent = text;
-    return h3;
-}
-
-function createP(text) {
-    const p = document.createElement('p');
-    p.textContent = text;
-    return p;
 }
