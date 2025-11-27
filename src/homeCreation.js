@@ -1,6 +1,6 @@
 import restaurantImage from './images/restaurant.jpg';
 
-export function initContent() {
+export function initHome() {
     const content = document.querySelector('#content');
     
     // create elements

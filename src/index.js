@@ -1,5 +1,19 @@
-import { initContent } from './contentCreation';
+import { initHome } from './homeCreation';
+import { initMenu } from './menuCreation';
 
-initContent();
+initHome();
 
-console.log("Hello");
+setupTab("home", initHome);
+setupTab("menu", initMenu);
+
+function setupTab(buttonId, initFunction) {
+    const button = document.getElementById(buttonId);
+    button.addEventListener('click', () => {
+        clearContent();
+        initFunction();
+    });
+}
+
+function clearContent() {
+    document.querySelector('#content').innerHTML = '';
+}
