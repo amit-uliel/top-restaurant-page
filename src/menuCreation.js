@@ -84,14 +84,16 @@ const menu = [
 export function initMenu() {
     // create div and append
     const content = document.querySelector('#content');
-
-    content.appendChild(createH2('Our Menu'));
+    const menuTitle = createH2('Our Menu');
+    menuTitle.classList.add('menuTitle');
+    content.appendChild(menuTitle);
 
     // add menu ui
     for (let i = 0; i < menu.length; i++) {
         const foodCategory = createDiv();
 
         const categoryTitle = createH3(menu[i].title);
+        categoryTitle.classList.add('categoryTitle');
 
         foodCategory.appendChild(categoryTitle);
 
@@ -99,6 +101,7 @@ export function initMenu() {
         for (let j = 0; j < dishes.length; j++) {
             const { foodName, description } = dishes[j];
             const food = createDiv();
+            food.classList.add('food');
             
             food.appendChild(createH4(foodName));
             description && food.appendChild(createP(description));

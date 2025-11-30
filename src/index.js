@@ -1,12 +1,28 @@
 import { initHome } from './homeCreation';
 import { initMenu } from './menuCreation';
 import { initAbout } from './aboutCreation';
+import './styles.css';
 
 initHome();
 
-setupTab("home", initHome);
-setupTab("menu", initMenu);
-setupTab("about", initAbout);
+const tabs = [
+    {
+        name: "home",
+        initFunction: initHome,
+    },
+    {
+        name: "menu",
+        initFunction: initMenu,
+    },
+    {
+        name: "about",
+        initFunction: initAbout,
+    },
+];
+
+tabs.forEach(({ name, initFunction }) => {
+    setupTab(name, initFunction);
+});
 
 function setupTab(buttonId, initFunction) {
     const button = document.getElementById(buttonId);

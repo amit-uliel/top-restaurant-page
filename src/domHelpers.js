@@ -2,6 +2,12 @@ export function createDiv() {
     return document.createElement('div');
 }
 
+export function createH1(text) {
+    const h1 = document.createElement('h1');
+    h1.textContent = text;
+    return h1;
+}
+
 export function createH2(text) {
     const h2 = document.createElement('h2');
     h2.textContent = text;
